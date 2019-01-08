@@ -3,18 +3,22 @@ import { bmiCalculation } from './BMICalculator';
 
 
 class DisplayResult extends Component {
+    state = {
+        bmiMessage: ''
+    }
 
-    calculate() {
+    calculateBmi() {
         var weight= this.props.weight;
         var height= this.props.height;
 
-        return bmiCalculation(weight, height);
+        this.setState({bmiMessage:bmiCalculation(weight, height) });
     }
     
     render() {
         return (
-            <div id='response'>
-                {this.calculate()}
+            <div>
+                <button onClick={()=>this.calculateBmi()}>Calculate</button>
+                <div>{this.state.bmiMessage}</div>
             </div>
         )
     }
