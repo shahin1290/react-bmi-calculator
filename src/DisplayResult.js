@@ -10,6 +10,7 @@ class DisplayResult extends Component {
     calculateBmi() {
         var weight= this.props.weight;
         var height= this.props.height;
+        var method= this.props.methodType;
 
         this.setState({bmiMessage:bmiCalculation(weight, height) });
     }
