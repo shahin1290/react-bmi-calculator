@@ -8,17 +8,17 @@ class DisplayResult extends Component {
     }
 
     calculateBmi() {
-        var weight= this.props.weight;
-        var height= this.props.height;
-        var method= this.props.methodType;
+        let weight= this.props.weight;
+        let height= this.props.height;
+        let method= this.props.methodType;
 
-        this.setState({bmiMessage:bmiCalculation(weight, height) });
+        this.setState({bmiMessage:bmiCalculation(weight, height, method) });
     }
     
     render() {
         return (
             <div>
-                <button onClick={()=>this.calculateBmi()}>Calculate</button>
+                <button onClick={()=>this.calculateBmi()} id="calculate">Calculate</button>
                 <div>{this.state.bmiMessage}</div>
             </div>
         )
