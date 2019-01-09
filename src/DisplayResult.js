@@ -19,7 +19,7 @@ class DisplayResult extends Component {
         return (
             <div>
                 <button onClick={()=>this.calculateBmi()} id="calculate">Calculate</button>
-                <div>{this.state.bmiMessage}</div>
+                <div id="response">{this.state.bmiMessage}</div>
             </div>
         )
     }

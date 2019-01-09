@@ -1,9 +1,8 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import { stub } from 'sinon';
+// import { stub } from 'sinon';
 
-// import DisplayResult from './DisplayResult'
-// import MethodSelect from './MethodSelect';
+import DisplayResult from '../DisplayResult'
 import App from '../App';
 
 describe('<App />', () => {
@@ -30,3 +29,22 @@ describe('<App />', () => {
     expect(component.contains(heightLabel)).toEqual(true);
   })
 })
+
+
+describe('<DisplayResult />', () => {
+    it('displays the calulation correct(metric)', () => {
+      const component = shallow(<DisplayResult methodType='Metric' weight='100' height='195'/>)
+      const response = <div id='response'>You are Overweight with a BMI of 26.3</div>
+      component.find("#calculate").simulate('click');
+      expect(component.contains(response)).toEqual(true)
+    })
+  
+    it('displays the calulation correct(imperial)', () => {
+      const component = shallow(<DisplayResult methodType='Imperial' weight='140' height='73'/>)
+      const response = <div id='response'>You are Underweight with a BMI of 18.47</div>
+      component.find("#calculate").simulate('click');
+      expect(component.contains(response)).toEqual(true)
+    })
+  
+  })
+  
